@@ -5,12 +5,11 @@
     if (!$stringToSearch) { Throw 'No text to search entered' }
 
     $files = Get-ChildItem $directorToSearch -recurse -EA SilentlyContinue | where {! $_.PSIsContainer}
-
+    $output = @()
     if ($outputLocation) {
-        $output = @()
         foreach ($file in $files) {
             $location = $file.FullName
-            $output = Select-String $location -Pattern $textToSearch
+            $output += Select-String $location -Pattern $textToSearch
         }
     } else {
         foreach ($file in $files) {
