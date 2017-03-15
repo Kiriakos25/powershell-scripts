@@ -2,7 +2,7 @@
     param([string]$directorToSearch, [string]$textToSearch, [string]$outputLocation)
 
     if (!$directorToSearch) { Throw 'No director entered' }
-    if (!$stringToSearch) { Throw 'No text to search entered' }
+    if (!$textToSearch) { Throw 'No text to search entered' }
 
     $files = Get-ChildItem $directorToSearch -recurse -EA SilentlyContinue | where {! $_.PSIsContainer}
     $output = @()
@@ -17,5 +17,9 @@
             Select-String $location -Pattern $textToSearch
         }
     }
-    if ($outputLocation) { $output | Out-File -FilePath $outputLocation }
+    if ($outputLocation) {
+        $output | Out-File -FilePath $outputLocation
+        Remove-Variable outputLocation
+    }
+    Remove-Variable directorToSearch, textToSearch
 }
