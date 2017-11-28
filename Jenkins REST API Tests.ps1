@@ -1,7 +1,7 @@
 ﻿$username = ""
 $password = ""
 
-$url = "http://{jenkins}/job/{job}/buildWithParameters?token=test"
+$url = "http://{jenkins}/job/{job}/buildWithParameters?token={token}"
 $body = @"
     {
         "parameter": [

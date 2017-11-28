@@ -1,0 +1,1 @@
+﻿#mvn deploy:deploy-file -DgroupId="com.EXL.Galic.V16" -DartifactId="ModTestConnectionSetup" -Dversion="1.16.00.1219_20130829F" -DgeneratePom="true" -Dpackaging="zip" -DrepositoryId="cots" -Durl="http://repository.qa.aag.gfrinc.net/nexus/content/repositories/cots" -Dfile="\\cinfile04\vol1\LifeProRepo\Pdma\GALIC\1.16\1.16.00.1219_20130829F\GALIC116001219_20130829F.zip"
